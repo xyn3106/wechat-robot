@@ -427,7 +427,7 @@ public class WechatServiceImpl implements WechatService {
 						LOGGER.info("\n set unknown answer= " + unknown);
 					} else if(content.equals("help")){
 						String ans = robot.talk(content);
-						webwxsendmsg(wechatMeta, ans+"\n发stop停止，start开启\n在群里发add把群加入自动回复，remove移除\n在私聊里发off关闭某人的自动回复，on开启", to);
+						webwxsendmsg(wechatMeta, ans+"\n发stop停止，start开启\n在群里发add把群加入自动回复，remove移除\n在私聊里发off关闭某人的自动回复，on开启\nhttps://github.com/xyn3106/wechat-robot", to);
 						LOGGER.info("\n自动回复to:\n" + to + "\n" + name + ":\n" + ans);
 					} else if(content.startsWith("d")){
 						String ans = robot.talk(content.substring(1));
