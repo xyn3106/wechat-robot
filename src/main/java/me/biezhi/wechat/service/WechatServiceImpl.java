@@ -350,6 +350,7 @@ public class WechatServiceImpl implements WechatService {
 	String help = "\n\n欢迎使用微信自动回复\n发stop停止自动回复，发start开启\n在群里发add把群加入自动回复，"
 			+ "发remove移除\n在私聊里发off关闭某人的自动回复，发on开启"
 			+ "\n源码https://github.com/xyn3106/wechat-robot"
+			+ "\n有问题请反馈QQ/微信：310652033"
 			+ "\n下载链接: http://pan.baidu.com/s/1pLMzryN 密码: f3vt";
 
 	/**
