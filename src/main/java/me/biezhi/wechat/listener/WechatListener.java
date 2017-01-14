@@ -22,6 +22,7 @@ public class WechatListener {
 				LOGGER.info("进入消息监听模式 ...");
 				wechatService.choiceSyncLine(wechatMeta);
 				while(true){
+					try {
 					int[] arr = wechatService.syncCheck(wechatMeta);
 					
 					if(arr[0] == 1100){
@@ -55,10 +56,13 @@ public class WechatListener {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					try {
+					} catch(Exception e){
+						e.printStackTrace();
+						try {
 						Thread.sleep(10000);
-					} catch (InterruptedException ee) {
-						ee.printStackTrace();
+						} catch (InterruptedException ee) {
+							ee.printStackTrace();
+						}
 					}
 				}
 			}
