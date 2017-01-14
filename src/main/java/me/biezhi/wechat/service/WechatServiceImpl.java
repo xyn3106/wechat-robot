@@ -349,6 +349,10 @@ public class WechatServiceImpl implements WechatService {
 	List<String> UserOFFList = new ArrayList<String>();
 	String postfix = "(自动回复)";
 	String unknown = "=unknown=";
+	String help = "\n\n欢迎使用微信自动回复\n发stop停止自动回复，发start开启\n在群里发add把群加入自动回复，"
+			+ "发remove移除\n在私聊里发off关闭某人的自动回复，发on开启"
+			+ "\n源码https://github.com/xyn3106/wechat-robot"
+			+ "\n下载链接: http://pan.baidu.com/s/1o7CHEqA 密码: cuq3";
 
 	/**
 	 * 处理消息
@@ -427,7 +431,7 @@ public class WechatServiceImpl implements WechatService {
 						LOGGER.info("\n set unknown answer= " + unknown);
 					} else if(content.equals("help")){
 						String ans = robot.talk(content);
-						webwxsendmsg(wechatMeta, ans+"\n发stop停止，start开启\n在群里发add把群加入自动回复，remove移除\n在私聊里发off关闭某人的自动回复，on开启\nhttps://github.com/xyn3106/wechat-robot", to);
+						webwxsendmsg(wechatMeta, ans + help, to);
 						LOGGER.info("\n自动回复to:\n" + to + "\n" + name + ":\n" + ans);
 					} else if(content.startsWith("d")){
 						String ans = robot.talk(content.substring(1));
