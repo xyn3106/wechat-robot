@@ -2,7 +2,6 @@ package me.biezhi.wechat.service;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -15,7 +14,6 @@ import com.blade.kit.http.HttpRequest;
 import com.blade.kit.json.JSONArray;
 import com.blade.kit.json.JSONKit;
 import com.blade.kit.json.JSONObject;
-import com.blade.kit.json.JSONValue;
 
 import me.biezhi.wechat.Constant;
 import me.biezhi.wechat.exception.WechatException;
@@ -352,7 +350,7 @@ public class WechatServiceImpl implements WechatService {
 	String help = "\n\n欢迎使用微信自动回复\n发stop停止自动回复，发start开启\n在群里发add把群加入自动回复，"
 			+ "发remove移除\n在私聊里发off关闭某人的自动回复，发on开启"
 			+ "\n源码https://github.com/xyn3106/wechat-robot"
-			+ "\n下载链接: http://pan.baidu.com/s/1o7CHEqA 密码: cuq3";
+			+ "\n下载链接: http://pan.baidu.com/s/1pLMzryN 密码: f3vt";
 
 	/**
 	 * 处理消息
@@ -448,6 +446,8 @@ public class WechatServiceImpl implements WechatService {
 //					LOGGER.info("|" + name + "| \n" + peopleContent[0] + ":\n" + peopleContent[1].replace("<br/>", "\n"));
 				} else {
 					String ans = robot.talk(content);
+					if(content.equals("help"))
+						ans = ans + help;
 					webwxsendmsg(wechatMeta, ans, fullName);
 					LOGGER.info("\n自动回复to:\n" + fullName + "\n" + name + ":\n" + ans);
 				}
